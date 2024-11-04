@@ -57,3 +57,5 @@ pydub
 dashscope
 loguru
 edge-tts
+huggingface-hub==0.25.0
+fastapi==0.112.2
