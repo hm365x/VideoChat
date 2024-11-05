@@ -9,8 +9,6 @@ from fastapi import FastAPI
 import warnings
 warnings.filterwarnings("ignore")
 
-from src.pipeline import chat_pipeline
-
 # os.environ["DASHSCOPE_API_KEY"] = "INPUT YOUR API KEY HERE"
 os.environ["is_half"] = "True"
 
@@ -22,6 +20,7 @@ os.system('mim install "mmpose==1.2.0"')
 # os.system('pip install --upgrade gradio') # 安装Gradio 5.0,目前创空间暂不支持，本地可选择5.0版本
 shutil.rmtree('./workspaces/results', ignore_errors= True)
 
+from src.pipeline import chat_pipeline
 
 def create_gradio():
     with gr.Blocks() as demo:   
