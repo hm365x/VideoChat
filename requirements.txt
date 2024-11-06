@@ -56,3 +56,4 @@ modelscope==1.19.2
 pydub
 dashscope
 edge-tts
+huggingface-hub==0.25.2
