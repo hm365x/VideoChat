@@ -1,5 +1,7 @@
 --extra-index-url https://download.pytorch.org/whl/cu121
-https://gradio-builds.s3.amazonaws.com/bed454c3d22cfacedc047eb3b0ba987b485ac3fd/gradio-4.40.0-py3-none-any.whl
+# https://gradio-builds.s3.amazonaws.com/bed454c3d22cfacedc047eb3b0ba987b485ac3fd/gradio-4.40.0-py3-none-any.whl
+gradio==5.4.0
+modelscope_studio==0.5.2
 torch==2.1.2 
 torchvision==0.16.2
 torchaudio==2.1.2
@@ -9,7 +11,6 @@ tensorflow==2.14.0
 tensorboard==2.14.0
 opencv-python==4.9.0.80
 soundfile==0.12.1
-transformers==4.41.1
 gdown==5.2.0
 requests==2.32.3
 imageio==2.35.1
@@ -31,7 +32,6 @@ cn2an==0.5.22
 pypinyin==0.52.0
 pyopenjtalk==0.3.4
 g2p-en==2.1.0
-modelscope==1.10.0
 sentencepiece==0.2.0
 chardet==5.2.0
 PyYAML==6.0.2
@@ -52,10 +52,7 @@ openmim==0.3.9
 openai==1.43.0
 fastapi[all]
 nltk
-modelscope_studio
+modelscope==1.19.2
 pydub
 dashscope
-loguru
 edge-tts
-huggingface-hub==0.25.0
-fastapi==0.112.2
