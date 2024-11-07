@@ -11,7 +11,6 @@
 - [x] TTS模块添加音色克隆功能
 - [x] TTS模块添加edge-tts
 - [x] LLM模块添加qwen本地推理
-- [ ] 链路优化：端到端语音
 
 ## 技术选型
 * ASR (Automatic Speech Recognition): [FunASR](https://github.com/modelscope/FunASR)
@@ -25,7 +24,8 @@
 
 * ubuntu 22.04
 * python 3.10
-* torch 2.1.2
+* CUDA 12.1
+* torch 2.1.2 / torch 2.3.0
 
 ```bash
 $ git lfs install
@@ -34,7 +34,6 @@ $ conda create -n metahuman python=3.10
 $ conda activate metahuman
 $ cd video_chat
 $ pip install -r requirement.txt
-$ pip install --upgrade gradio # 安装Gradio 5
 ```
 
 ### 2. 权重下载
