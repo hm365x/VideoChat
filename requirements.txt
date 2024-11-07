@@ -2,9 +2,13 @@
 # https://gradio-builds.s3.amazonaws.com/bed454c3d22cfacedc047eb3b0ba987b485ac3fd/gradio-4.40.0-py3-none-any.whl
 gradio==5.4.0
 modelscope_studio==0.5.2
-torch==2.1.2 
-torchvision==0.16.2
-torchaudio==2.1.2
+# torch==2.1.2 
+# torchvision==0.16.2
+# torchaudio==2.1.2
+torch==2.3.0
+torchvision==0.18.0
+torchaudio==2.3.0
+
 diffusers==0.27.2
 accelerate==0.28.0
 tensorflow==2.14.0
@@ -52,7 +56,7 @@ openmim==0.3.9
 openai==1.43.0
 fastapi[all]
 nltk
-modelscope==1.19.2
+modelscope==1.18.0
 pydub
 dashscope
 edge-tts

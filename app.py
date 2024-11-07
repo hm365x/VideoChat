@@ -16,8 +16,8 @@ os.environ["is_half"] = "True"
 os.system('mim install mmengine')
 os.system('mim install "mmcv==2.1.0"')
 os.system('mim install "mmdet==3.2.0"')
-os.system('mim install "mmpose==1.2.0"')
-# os.system('pip install --upgrade gradio') # 安装Gradio 5.0,目前创空间暂不支持，本地可选择5.0版本
+# os.system('mim install "mmpose==1.2.0"') # for torch 2.1.2
+os.system('mim install "mmpose==1.3.2"') # for torch 2.3.0
 shutil.rmtree('./workspaces/results', ignore_errors= True)
 
 from src.pipeline import chat_pipeline
