@@ -74,7 +74,8 @@ class ChatPipeline:
             # GPT-SoVits
             if tts_module == "GPT-SoVits":
                 ref_audio_path = f'data/audio/{avatar_voice}.wav'
-                self.tts.init_infer(ref_audio_path)
+                prompt_text = self.asr.infer(ref_audio_path)
+                self.tts.init_infer(ref_audio_path, prompt_text)
             # CosyVoice
             else:
                 self.tts_api.voice = avatar_voice  
