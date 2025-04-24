@@ -1,3 +1,6 @@
+/weights/
+/src/GPT_SoVITS/pretrained_models/
+/src/GPT_SoVITS/text/G2PWModel/
 .DS_Store
 */.DS_Store
 *.log
