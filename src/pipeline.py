@@ -24,7 +24,7 @@ from src.utils import get_timestamp_str, merge_videos, merge_frames_with_audio, 
 from src.tts import GPT_SoVits_TTS, CosyVoice_API
 from src.thg import Muse_Talk
 from src.asr import Fun_ASR
-from src.llm import Qwen_API
+from src.llm import Qwen_API, Qwen
 
 
 @torch.no_grad()
@@ -37,7 +37,7 @@ class ChatPipeline:
         self.asr = Fun_ASR()
 
         print(f"[3/4] Start initializing qwen")
-        self.llm = Qwen_API()
+        self.llm = Qwen() #Qwen_API()
 
         print(f"[4/4] Start initializing tts")
         self.tts = GPT_SoVits_TTS()
