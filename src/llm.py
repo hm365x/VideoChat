@@ -90,7 +90,8 @@ class Qwen:
         fp_flag = True
         print("[LLM] Start LLM streaming...")
         for chunk in streamer:
-            chat_response_chunk = chunk.choices[0].delta.content
+            #chat_response_chunk = chunk.choices[0].delta.content # 本地推理与数字人对话时会报错 An error occurred: 'str' object has no attribute 'choices'
+            chat_response_chunk = chunk
             chat_response += chat_response_chunk
             buffer += chat_response_chunk
 
