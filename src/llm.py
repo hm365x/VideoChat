@@ -8,7 +8,6 @@ import os
 import json
 import time
 
-
 custom_cache_dir = "/root/autodl-tmp/cache"
 os.environ["TRANSFORMERS_CACHE"] = os.path.join(custom_cache_dir, "huggingface")
 os.environ["MODELSCOPE_CACHE"] = os.path.join(custom_cache_dir, "modelscope")
