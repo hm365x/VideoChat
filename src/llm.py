@@ -10,18 +10,17 @@ import time
 
 
 custom_cache_dir = "/root/autodl-tmp/cache"
-#os.environ["TRANSFORMERS_CACHE"] = os.path.join(custom_cache_dir, "huggingface")
-#os.environ["MODELSCOPE_CACHE"] = os.path.join(custom_cache_dir, "modelscope")
-#给 from_pretrained 指定 cache_dir 位置，否则默认会将模型缓存到系统盘 ~/.cache（/root/.cache）
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(custom_cache_dir, "huggingface")
+os.environ["MODELSCOPE_CACHE"] = os.path.join(custom_cache_dir, "modelscope")
+#给 Qwen\__init__\from_pretrained 下载模型指定 cache_dir 位置，否则默认会将模型缓存到系统盘 ~/.cache（/root/.cache）
 class Qwen:
     def __init__(self, model_name = "Qwen/Qwen2.5-7B-Instruct"):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            cache_dir=custom_cache_dir+"/modelscope",
             torch_dtype="auto",
             device_map="auto"
         )
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=custom_cache_dir+"/modelscope")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     def infer(self, user_input, user_messages, chat_mode):
         # prompt 
