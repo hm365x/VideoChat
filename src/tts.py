@@ -159,6 +159,8 @@ class GPT_SoVits_TTS:
 class CosyVoice_API:
     def __init__(self):
         dashscope.api_key = os.getenv("DASHSCOPE_API_KEY")  
+        if not dashscope.api_key:
+            print("[TTS] Please set the DASHSCOPE_API_KEY environment variable, CosyVoice will not work.")
         self.voice = "longwan"
 
     def infer(self, project_path, text, index = 0):
@@ -168,7 +170,7 @@ class CosyVoice_API:
             output_wav_path = f"{audio_path}/llm_response_audio_{index}.wav"
 
             start_time = time.time()
-            audio = SpeechSynthesizer(model="cosyvoice-v1", voice=self.voice).call(text)
+            audio = SpeechSynthesizer(model="cosyvoice-v1", voice=self.voice).call(text) #未设置 DASHSCOPE_API_KEY 时 dashscope.api_key == None，SpeechSynthesizer会报错  [TTS] API infer error: can only concatenate str (not "NoneType") to str
             print("[TTS] API infer cost:", time.time()-start_time)
             with open(output_wav_path, 'wb') as f:
                 f.write(audio)
