@@ -66,7 +66,7 @@ class Qwen:
             if chat_mode == "单轮对话 (一次性回答问题)":
                 user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。请你以“好的”、“没问题”、“明白了”、“当然可以”等短句作为回复的开头。'
             else:
-                with open('src/prompt.txt', 'r') as f:
+                with open('src/prompt.txt', 'r', encoding='utf-8') as f:
                     user_messages[0]['content'] = f.read()
         print(f"[LLM] user_messages: {user_messages}")
         user_messages.append({'role': 'user', 'content': user_input})
