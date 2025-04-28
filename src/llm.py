@@ -9,6 +9,7 @@ import json
 import time
 
 custom_cache_dir = "/root/autodl-tmp/cache"
+custom_cache_dir = "/mnt/d/wsl/autodl-tmp/cache"
 os.environ["TRANSFORMERS_CACHE"] = os.path.join(custom_cache_dir, "huggingface")
 os.environ["MODELSCOPE_CACHE"] = os.path.join(custom_cache_dir, "modelscope")
 #给 Qwen\__init__\from_pretrained 下载模型指定 cache_dir 位置，否则默认会将模型缓存到系统盘 ~/.cache（/root/.cache）
@@ -25,7 +26,7 @@ class Qwen:
         # prompt 
         if len(user_messages) == 1:
             if chat_mode == "单轮对话 (一次性回答问题)":
-                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用长度接近的短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。请你以“好的”、“没问题”、“明白了”等短句作为回复的开头。'
+                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用长度接近的短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。'
             else:
                 with open('src/prompt.txt', 'r') as f:
                     user_messages[0]['content'] = f.read()
@@ -64,7 +65,7 @@ class Qwen:
         # prompt 
         if len(user_messages) == 1:
             if chat_mode == "单轮对话 (一次性回答问题)":
-                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。请你以“好的”、“没问题”、“明白了”、“当然可以”等短句作为回复的开头。'
+                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。'
             else:
                 with open('src/prompt.txt', 'r', encoding='utf-8') as f:
                     user_messages[0]['content'] = f.read()
@@ -141,7 +142,7 @@ class Qwen_API:
         # prompt 
         if len(user_messages) == 1:
             if chat_mode == "单轮对话 (一次性回答问题)":
-                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用长度接近的短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。请你以“好的”、“没问题”、“明白了”等短句作为回复的开头。'
+                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用长度接近的短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感'
             else:
                 with open('src/prompt.txt', 'r') as f:
                     user_messages[0]['content'] = f.read()
@@ -170,7 +171,7 @@ class Qwen_API:
         # prompt 
         if len(user_messages) == 1:
             if chat_mode == "单轮对话 (一次性回答问题)":
-                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感。请你以“好的”、“没问题”、“明白了”、“当然可以”等短句作为回复的开头。'
+                user_messages[0]['content'] = '你负责为一个语音聊天系统生成对话文本输出，使用短句，确保语气情感丰富、友好，并且响应迅速以保持用户的参与感'
             else:
                 with open('src/prompt.txt', 'r') as f:
                     user_messages[0]['content'] = f.read()
