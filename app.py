@@ -104,4 +104,5 @@ if __name__ == "__main__":
     app = FastAPI()
     gradio_app = create_gradio()
     app = gr.mount_gradio_app(app, gradio_app, path='/')
+    #uvicorn.run(app, port = 7860, log_level="warning") #可屏蔽掉uvicorn的INFO日志, 如：INFO:     Uvicorn running on http://127.0.0.1:7860 (Press CTRL+C to quit)
     uvicorn.run(app, port = 7860)
