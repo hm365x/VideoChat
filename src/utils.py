@@ -21,7 +21,7 @@ def merge_frames_with_audio(audio_path, fps = 25):
         '-framerate', str(fps),
         '-i', f"{frame_path}/%08d.jpg",
         '-i', audio_path,
-        '-c:v', 'libx264',     
+        '-c:v', 'libx264',     #libx264若有必要可以改成mpeg4
         '-shortest',
         '-f', 'mpegts',    
         '-y',     
