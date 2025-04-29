@@ -62,3 +62,8 @@ dashscope
 edge-tts
 huggingface-hub==0.25.2
 transformers==4.48.3
+
+#跑GPTQ量化需要optimum和auto-gptq, peft降级0.14.0与accelerate==0.28.0兼容
+optimum==1.24.0
+auto-gptq==0.7.1
+peft==0.14.0
