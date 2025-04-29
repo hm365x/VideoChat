@@ -19,8 +19,18 @@ if custom_cache_dir:
     os.environ["TRANSFORMERS_CACHE"] = os.path.join(custom_cache_dir, "huggingface")
     os.environ["MODELSCOPE_CACHE"] = os.path.join(custom_cache_dir, "modelscope")
 #给 Qwen\__init__\from_pretrained 下载模型指定 cache_dir 位置，否则默认会将模型缓存到系统盘 ~/.cache（/root/.cache）
+# Qwen2.5系列: 0.5B, 1.5B, 3B, 7B, 14B, 32B, 72B
+# Qwen/Qwen2.5-0.5B-Instruct, 9.1G显存
+# Qwen/Qwen2.5-1.5B-Instruct, 11.3G爆12G显存
+# Qwen/Qwen2.5-3B-Instruct, 11.4G爆12G显存
+# Qwen/Qwen2.5-3B-Instruct-AWQ, 10.4G显存
+# Qwen/Qwen2.5-3B-Instruct-GGUF
+# Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4， 10.2G显存
+# Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8
+# Qwen/Qwen2.5-7B-Instruct, 20G显存
+# Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4, 11.3G爆12G显存
 class Qwen:
-    def __init__(self, model_name = "Qwen/Qwen2.5-7B-Instruct"):
+    def __init__(self, model_name = "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4"):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             torch_dtype="auto",
