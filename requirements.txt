@@ -61,3 +61,4 @@ pydub
 dashscope
 edge-tts
 huggingface-hub==0.25.2
+transformers==4.48.3
