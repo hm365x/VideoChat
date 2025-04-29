@@ -5,9 +5,9 @@ modelscope_studio==0.5.2
 # torch==2.1.2 
 # torchvision==0.16.2
 # torchaudio==2.1.2
-torch==2.3.0
-torchvision==0.18.0
-torchaudio==2.3.0
+torch==2.3.1
+torchvision==0.18.1
+torchaudio==2.3.1
 
 diffusers==0.27.2
 accelerate==0.28.0
@@ -61,9 +61,13 @@ pydub
 dashscope
 edge-tts
 huggingface-hub==0.25.2
-transformers==4.48.3
+#huggingface-hub==0.25.2需要transformers<4.49.0
+transformers==4.46.3
 
 #跑GPTQ量化需要optimum和auto-gptq, peft降级0.14.0与accelerate==0.28.0兼容
 optimum==1.24.0
 auto-gptq==0.7.1
 peft==0.14.0
+
+#跑GPTQ量化需要autoawq, 0.2.5/0.2.6改动最小, 需要pytorch稍微升级(torch==2.3.0, torchvision==0.18.0, torchaudio==2.3.0 => 2.3.1, 0.18.1, 2.3.1), transformers降级4.46.3
+autoawq==0.2.6
