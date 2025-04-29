@@ -37,7 +37,7 @@ class ChatPipeline:
         self.asr = Fun_ASR()
 
         print(f"[3/4] Start initializing qwen")
-        self.llm = Qwen() #Qwen_API()
+        self.llm = Qwen_API() if os.getenv("DASHSCOPE_API_KEY") else Qwen()
 
         print(f"[4/4] Start initializing tts")
         self.tts = GPT_SoVits_TTS()

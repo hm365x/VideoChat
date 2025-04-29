@@ -11,6 +11,7 @@ warnings.filterwarnings("ignore")
 
 # os.environ["DASHSCOPE_API_KEY"] = "INPUT YOUR API KEY HERE"
 os.environ["is_half"] = "True"
+USE_API = True if os.getenv("DASHSCOPE_API_KEY") else False
 
 # 安装musetalk依赖
 os.system('mim install mmengine')
@@ -47,8 +48,8 @@ def create_gradio():
                     avatar_name = gr.Dropdown(label = "数字人形象", choices = ["Avatar1 (通义万相)", "Avatar2 (通义万相)", "Avatar3 (MuseV)"], value = "Avatar1 (通义万相)")
                     chat_mode = gr.Dropdown(label = "对话模式", choices = ["单轮对话 (一次性回答问题)", "互动对话 (分多次回答问题)"], value = "互动对话 (分多次回答问题)")
                     chunk_size = gr.Slider(label = "每次处理的句子最短长度", minimum = 0, maximum = 30, value = 5, step = 1) 
-                    tts_module = gr.Dropdown(label = "TTS选型", choices = ["GPT-SoVits", "CosyVoice"], value = "GPT-SoVits")
-                    avatar_voice = gr.Dropdown(label = "TTS音色", choices = ["longxiaochun (CosyVoice)", "longwan (CosyVoice)", "longcheng (CosyVoice)", "longhua (CosyVoice)", "少女 (GPT-SoVits)", "女性 (GPT-SoVits)", "青年 (GPT-SoVits)", "男性 (GPT-SoVits)"], value="少女 (GPT-SoVits)")
+                    tts_module = gr.Dropdown(label = "TTS选型", choices = ["GPT-SoVits", "CosyVoice"], value = "CosyVoice" if USE_API else "GPT-SoVits")
+                    avatar_voice = gr.Dropdown(label = "TTS音色", choices = ["longxiaochun (CosyVoice)", "longwan (CosyVoice)", "longcheng (CosyVoice)", "longhua (CosyVoice)", "少女 (GPT-SoVits)", "女性 (GPT-SoVits)", "青年 (GPT-SoVits)", "男性 (GPT-SoVits)"], value="longwan (CosyVoice)" if USE_API else "少女 (GPT-SoVits)")
                     
                 user_input = mgr.MultimodalInput(sources=["microphone"])
 
