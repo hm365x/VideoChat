@@ -166,7 +166,7 @@ class Qwen_API:
         print(user_messages)
 
         completion = self.client.chat.completions.create(
-            model="qwen-turbo",
+            model="qwen-turbo", #模型列表, https://help.aliyun.com/zh/model-studio/getting-started/models
             messages=user_messages
         )
         print(completion)
