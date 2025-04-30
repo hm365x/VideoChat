@@ -44,7 +44,7 @@ class ChatPipeline:
         self.tts_api = CosyVoice_API()
         
         print("[Done] Initialzation finished")
-        self.timeout=30 # 如果机器性能不足出现 TTS Timeout 和 ffmpeg timeout, 提高超时时间
+        self.timeout=60 # 如果机器性能不足出现 TTS Timeout 和 ffmpeg timeout, 提高超时时间
         self.video_queue = queue.Queue()
         self.llm_queue = queue.Queue()
         self.tts_queue = queue.Queue()
