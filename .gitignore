@@ -11,4 +11,6 @@ workspaces/
 */.mypy_cache/
 */.coverage
 __pycache__/
-weights/ZhipuAI/*
+weights/*
+/src/GPT_SoVITS/pretrained_models/
+/src/GPT_SoVITS/text/G2PWModel/
