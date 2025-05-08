@@ -222,7 +222,7 @@ if __name__ == "__main__":
             app = FastAPI()
             gradio_app = create_gradio()
             app = gr.mount_gradio_app(app, gradio_app, path='/')
-            uvicorn.run(app, port=7860)
+            uvicorn.run(app, port=7860, log_level="warning")
 
             # 等待 model_server 进程结束
             model_server_process.wait()
