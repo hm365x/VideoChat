@@ -88,3 +88,6 @@ httpx==0.27.2
 
 #遇到报错 ModuleNotFoundError: No module named 'tomli', 安装tomli(目前2.2.1)
 tomli==2.2.1
+
+#打开前端服务页面时报错 TypeError: argument of type 'bool' is not iterable, pydantic降级2.10.6
+pydantic==2.10.6
