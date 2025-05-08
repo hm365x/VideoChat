@@ -35,7 +35,7 @@ class MLLMPipeline:
         self.mllm = GLM_4_Voice()
         print("[Done] Initialzation finished")
 
-        self.timeout= 30 
+        self.timeout= 60 
         self.video_queue = queue.Queue()
         self.mllm_queue = queue.Queue()
         self.thg_queue = queue.Queue()
