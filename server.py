@@ -119,4 +119,5 @@ if __name__ == "__main__":
     # thg worker
     # thg_worker = ThgWorker()
 
-    uvicorn.run(app, host="localhost", port=10000, log_level="info")
+    #uvicorn.run(app, host="localhost", port=10000, log_level="info") # localhost有可能解析为 127.0.0.1 或 ::1, 后者可能绑定失败
+    uvicorn.run(app, host="0.0.0.0", port=10000, log_level="info")
