@@ -85,9 +85,9 @@ class GLM_4_Voice:
 
             # Extract tokens 
             if user_input.files:
-                audio_path = user_input.files[0].path
+                input_audio_path = user_input.files[0].path
                 audio_tokens = extract_speech_token(
-                    self.whisper_model, self.feature_extractor, [audio_path]
+                    self.whisper_model, self.feature_extractor, [input_audio_path]
                 )[0]
                 if len(audio_tokens) == 0:
                     raise gr.Error("No audio tokens extracted")
