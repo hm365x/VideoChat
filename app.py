@@ -45,7 +45,7 @@ snapshot_download('ZhipuAI/glm-4-voice-decoder',cache_dir='./weights')
 snapshot_download('ZhipuAI/glm-4-voice-9b',cache_dir='./weights')
 
 from src.pipeline_llm import llm_pipeline
-ENABLE_MLLM = True
+ENABLE_MLLM = False
 if ENABLE_MLLM:
     from src.pipeline_mllm import mllm_pipeline
 
@@ -102,7 +102,7 @@ def create_gradio():
 
                 with gr.Row():
                     avatar_name = gr.Dropdown(label = "数字人形象", choices = ["Avatar1 (通义万相)", "Avatar2 (通义万相)", "Avatar3 (MuseV)"], value = "Avatar1 (通义万相)")
-                    chat_mode = gr.Dropdown(label = "对话模式", choices = ["单轮对话 (一次性回答问题)", "互动对话 (分多次回答问题)"], value = "单轮对话 (一次性回答问题)")
+                    chat_mode = gr.Dropdown(label = "对话模式", choices = ["单轮对话 (一次性回答问题)", "互动对话 (分多次回答问题)"], value = "互动对话 (分多次回答问题)")
                     chunk_size = gr.Slider(label = "每次处理的句子最短长度", minimum = 0, maximum = 30, value = 5, step = 1) 
                     tts_module = gr.Dropdown(label = "TTS选型", choices = ["GPT-SoVits", "CosyVoice"], value = "CosyVoice" if USE_API else "GPT-SoVits")
                     avatar_voice = gr.Dropdown(label = "TTS音色", choices = ["longxiaochun (CosyVoice)", "longwan (CosyVoice)", "longcheng (CosyVoice)", "longhua (CosyVoice)", "少女 (GPT-SoVits)", "女性 (GPT-SoVits)", "青年 (GPT-SoVits)", "男性 (GPT-SoVits)"], value="longwan (CosyVoice)" if USE_API else "少女 (GPT-SoVits)")
