@@ -107,7 +107,8 @@ class Qwen:
         fp_flag = True
         print("[LLM] Start LLM streaming...")
         for chunk in streamer:
-            chat_response_chunk = chunk.choices[0].delta.content
+            #chat_response_chunk = chunk.choices[0].delta.content # 本地大模型返回的chunk就是str, 报错 An error occurred: 'str' object has no attribute 'choices'
+            chat_response_chunk = chunk.replace("<|im_end|>", "").strip() # chunk结尾带"<|im_end|>", 去掉
             chat_response += chat_response_chunk
             buffer += chat_response_chunk
 
