@@ -73,7 +73,7 @@ def merge_videos(video_folder_path, suffix = '.mp4'):
         '-safe', '0',
         '-i', file_list_path,
         '-c', 'copy',
-        '-c:v', 'libx264',
+        '-c:v', 'libx264', #libx264若有必要可以改成mpeg4
         '-c:a', 'aac', 
         '-y',
         output_path

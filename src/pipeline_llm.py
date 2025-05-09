@@ -44,7 +44,7 @@ class LLMPipeline:
         self.tts_api = CosyVoice_API()
         
         print("[Done] Initialzation finished")
-        self.timeout=60
+        self.timeout=90
         self.video_queue = queue.Queue()
         self.llm_queue = queue.Queue()
         self.tts_queue = queue.Queue()
