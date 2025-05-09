@@ -24,6 +24,7 @@ if custom_cache_dir:
 # Qwen/Qwen2.5-0.5B-Instruct, 总显存9.5G
 #
 # Qwen/Qwen2.5-1.5B-Instruct, 总显存11.3G
+# Qwen/Qwen2.5-1.5B-Instruct-AWQ， 总显存9.xG
 # Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int4， 总显存9.xG
 #
 # Qwen/Qwen2.5-3B-Instruct, 总显存11.4G/超3060-12G(可能使用到内存或CPU, 推理极慢, 超时时间要提高到90s)
@@ -35,7 +36,7 @@ if custom_cache_dir:
 # Qwen/Qwen2.5-7B-Instruct, 总显存20G
 # Qwen/Qwen2.5-7B-Instruct-GPTQ-Int4, 总显存11.3G/超3060-12G
 class Qwen:
-    def __init__(self, model_name = "Qwen/Qwen2.5-1.5B-Instruct-GPTQ-Int4"):
+    def __init__(self, model_name = "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4"):
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             torch_dtype="auto",
