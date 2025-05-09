@@ -62,7 +62,10 @@ dashscope
 edge-tts
 huggingface-hub==0.25.2
 #huggingface-hub==0.25.2需要transformers<4.49.0
-transformers==4.46.3
+transformers==4.44.2
+
+#打开前端服务页面时报错 TypeError: argument of type 'bool' is not iterable, pydantic降级2.10.6
+pydantic==2.10.6
 
 #跑GPTQ量化需要optimum和auto-gptq, peft降级0.14.0与accelerate==0.28.0兼容
 optimum==1.24.0
