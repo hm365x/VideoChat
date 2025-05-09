@@ -183,6 +183,10 @@ class LLMPipeline:
         s = "Index     Duration     LLM       TTS       THG       ffmpeg    Cost\n"
 
         for row in zip(index, *self.time_cost):
+            if len(row) < 7:
+                # 避免报错 An error occurred: Replacement index 6 out of range for positional args tuple
+                print("Row before formatting:", row, "Length:", len(row)) #调试
+                row = list(row) + [''] * (7 - len(row))  # 如果元素个数小于7，补充空字符串, 保证有 7 个元素
             s += "{:<10} {:<10} {:<10} {:<10} {:<10} {:<10} {:<10}\n".format(*row)
 
         return s
