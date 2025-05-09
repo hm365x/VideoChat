@@ -44,7 +44,9 @@ snapshot_download('ZhipuAI/glm-4-voice-decoder',cache_dir='./weights')
 snapshot_download('ZhipuAI/glm-4-voice-9b',cache_dir='./weights')
 
 from src.pipeline_llm import llm_pipeline
-from src.pipeline_mllm import mllm_pipeline
+ENABLE_MLLM = True
+if ENABLE_MLLM:
+    from src.pipeline_mllm import mllm_pipeline
 
 
 def is_port_open(host, port):
@@ -152,6 +154,8 @@ def create_gradio():
             inputs = user_processing_flag, 
             outputs = user_processing_flag
             )
+    if not ENABLE_MLLM:
+        return gr.TabbedInterface([cascade_demo], ['ASR-LLM-TTS-THG']).queue()
         
     with gr.Blocks() as mllm_demo:
           
@@ -204,7 +208,7 @@ def create_gradio():
 
     return gr.TabbedInterface([cascade_demo, mllm_demo], ['ASR-LLM-TTS-THG', 'MLLM(GLM-4-Voice)-THG']).queue()
 
-if __name__ == "__main__":
+if __name__ == "__main__" and ENABLE_MLLM:
     # 启动 model_server
     model_server_process = subprocess.Popen(
         ['python', 'server.py'],
@@ -233,3 +237,11 @@ if __name__ == "__main__":
     else:
         print("Failed to start model_server, terminating...")
         model_server_process.terminate()
+
+elif __name__ == "__main__":
+    # 启动 gradio demo
+    print("Starting FastAPI with Gradio...")
+    app = FastAPI()
+    gradio_app = create_gradio()
+    app = gr.mount_gradio_app(app, gradio_app, path='/')
+    uvicorn.run(app, port=7860, log_level="warning")
