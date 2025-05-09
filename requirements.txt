@@ -61,7 +61,7 @@ pydub
 dashscope
 edge-tts
 huggingface-hub==0.25.2
-#huggingface-hub==0.25.2需要transformers<4.49.0
+#huggingface-hub==0.25.2需要transformers<=4.48.3
 transformers==4.44.2
 
 #打开前端服务页面时报错 TypeError: argument of type 'bool' is not iterable, pydantic降级2.10.6
@@ -72,7 +72,7 @@ optimum==1.24.0
 auto-gptq==0.7.1
 peft==0.14.0
 
-#跑AWQ量化需要autoawq, 0.2.5/0.2.6改动最小, 需要pytorch稍微升级(torch==2.3.0, torchvision==0.18.0, torchaudio==2.3.0 => 2.3.1, 0.18.1, 2.3.1), transformers降级4.46.3
+#跑AWQ量化需要autoawq, 0.2.5/0.2.6改动最小, 需要pytorch稍微升级(torch==2.3.0, torchvision==0.18.0, torchaudio==2.3.0 => 2.3.1, 0.18.1, 2.3.1), transformers<=4.46.3
 autoawq==0.2.6
 
 #推理使用API-KEY时报错 unexpected keyword argument 'proxies', httpx降级0.27.2
