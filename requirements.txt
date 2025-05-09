@@ -62,7 +62,7 @@ edge-tts
 # fastapi==0.112.2
 
 # GLM-4-Voice requirements
-transformers==4.44.1
+transformers==4.44.2
 conformer==0.3.2
 deepspeed==0.14.2; sys_platform == 'linux'
 grpcio==1.57.0
