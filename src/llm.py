@@ -147,10 +147,11 @@ class Qwen:
 
 
 class Qwen_API:
-    def __init__(self, api_key = None, base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"):
+    def __init__(self, api_key = None, base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1", model = "qwen-turbo"):
         api_key = api_key if api_key else os.getenv("DASHSCOPE_API_KEY")
+        self.model = model
         self.client = OpenAI(
-            api_key=os.getenv("DASHSCOPE_API_KEY"),
+            api_key=api_key,
             base_url=base_url,
         )
        
@@ -166,7 +167,7 @@ class Qwen_API:
         print(user_messages)
 
         completion = self.client.chat.completions.create(
-            model="qwen-turbo", #模型列表, https://help.aliyun.com/zh/model-studio/getting-started/models
+            model=self.model, #模型列表, https://help.aliyun.com/zh/model-studio/getting-started/models
             messages=user_messages
         )
         print(completion)
@@ -194,7 +195,7 @@ class Qwen_API:
         print(f"[LLM] user_messages: {user_messages}")
         user_messages.append({'role': 'user', 'content': user_input})
         completion = self.client.chat.completions.create(
-            model="qwen-turbo",
+            model=self.model,
             messages=user_messages,
             stream=True
         )

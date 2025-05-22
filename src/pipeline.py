@@ -38,6 +38,7 @@ class ChatPipeline:
 
         print(f"[3/4] Start initializing qwen")
         self.llm = Qwen_API() if os.getenv("DASHSCOPE_API_KEY") else Qwen()
+        #self.llm = Qwen_API("EMPTY", "http://localhost:8000", "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int4") # 测试vllm部署的OpenAI兼容API服务
 
         print(f"[4/4] Start initializing tts")
         self.tts = GPT_SoVits_TTS()
